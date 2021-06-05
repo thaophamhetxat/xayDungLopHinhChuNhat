@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1000" height="500" style="border:1px solid #d3d3d3"></canvas>
+<script>
+    class HinhChuNhat {
+        dai;
+        rong;;
+        dientich;
+        chuvi;
+
+        constructor(dai, rong) {
+            this.dai = dai;
+            this.rong = rong;
+            this.dientich = this.dai * this.rong;
+            this.chuvi = (this.dai+this.rong)*2 ;
+        }
+
+        hienthi() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.moveTo(0, 0);
+            ctx.lineTo(this.dai, 0);
+            ctx.moveTo(this.dai, 0);
+            ctx.lineTo(this.dai, this.rong);
+            ctx.moveTo(this.dai, this.rong);
+            ctx.lineTo(0,this.rong);
+            ctx.moveTo(0,this.rong);
+            ctx.lineTo(0,0);
+            ctx.stroke();
+        }
+
+    }
+
+    let HinhChuNhat1 = new HinhChuNhat(parseFloat(prompt('nhập dài:')), parseFloat(prompt('nhập rộng:')));
+    document.write('dien tich hcn là: ' + HinhChuNhat1.dientich + '<br>');
+    document.write('chu vi hcn là: ' + HinhChuNhat1.chuvi);
+    HinhChuNhat1.hienthi();
+
+
+</script>
+</body>
+</html>
